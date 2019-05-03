@@ -18,10 +18,10 @@ namespace Simple_CRUD.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SimpleCRUD")
         {
         }
 
@@ -29,5 +29,8 @@ namespace Simple_CRUD.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Budget> Budgets { get; set; }
+
     }
 }
